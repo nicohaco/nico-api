@@ -12,15 +12,16 @@ test('test flow', async (t) => {
     password: process.env.PASSWORD
   });
 
-  await n.login().then((res) => {
-    console.log(res);
-  });
+  await n.login();
+
   const list = await n.mylist.getAll();
 
   // 新しいマイリスト(1)を取得
-  const id = list.find((item) => item.name === '新しいマイリスト(1)').id;
-  const items = await n.mylist.get(id);
-  console.log(items);
+  const id = list.mylistgroup.find((item) => item.name === '新しいマイリスト(1)').id;
+  const items = (await n.mylist.get(id)).mylistitem;
 
+  const res = await n.video.getFLV(items[0].item_data.video_id);
+
+  console.log(res);
   t.pass();
 });
