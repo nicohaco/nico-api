@@ -24,13 +24,14 @@ test('test flow', async (t) => {
 
   // http://api.search.nicovideo.jp/api/v2/video/contents/search?q=%E5%88%9D%E9%9F%B3%E3%83%9F%E3%82%AF&targets=title&fields=contentId,title,description,tags,categoryTags,viewCounter,mylistCounter,commentCounter,startTime,thumbnailUrl&filters%5BviewCounter%5D%5Bgte%5D=1000000&_sort=-viewCounter&_offset=0&_limit=100&_context=apiguide
   const search = await n.video.search({
-    q: '初音ミク',
+    q       : '初音ミク',
     targets : 'title',
     _sort   : '-viewCounter',
     _context: 'nicoapi',
-    _limit: 100,
-    fields: 'contentId,title,description,tags,categoryTags,viewCounter,mylistCounter,commentCounter,startTime,thumbnailUrl'
+    _limit  : 100,
+    fields  : 'contentId,title,description,tags,categoryTags,viewCounter,mylistCounter,commentCounter,startTime,thumbnailUrl'
   });
 
+  const userInfo = await n.user.getInfo('48434166');
   t.pass();
 });
