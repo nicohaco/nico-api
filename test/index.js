@@ -32,6 +32,8 @@ test('test flow', async (t) => {
     fields  : 'contentId,title,description,tags,categoryTags,viewCounter,mylistCounter,commentCounter,startTime,thumbnailUrl'
   });
 
-  const userInfo = await n.user.getInfo('48434166');
+  const userInfo = await n.user.getInfo();
+
+  console.log(userInfo);
   t.pass();
 });
