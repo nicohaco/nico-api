@@ -20,10 +20,10 @@ test('test flow', async (t) => {
   // // 新しいマイリスト(1)を取得
   // const id = list.mylistgroup.find((item) => item.name === '新しいマイリスト(1)').id;
   // const items = (await n.mylist.get(id)).mylistitem;
-  // console.log(items)
   // const res = await n.video.getFLV(items[0].item_data.video_id);
-  // const nicohistory = await n.video.getNicohistory(items[0].item_data.video_id);
-  //
+
+  // const videoData = await n.video.getVideoData(items[0].item_data.video_id);
+
   // const search = await n.video.search({
   //   q       : '初音ミク',
   //   targets : 'title',
@@ -43,10 +43,17 @@ test('test flow', async (t) => {
   //   icon_id: 0
   // });
 
-  const res = await n.mylist.deleteVideo({
-    group_id      : 59065359,
-    'id_list[0][]': 9 // 動画IDではなくitem_id
-  });
+  // await n.mylist.addVideo({
+  //   group_id: 59065359,
+  //   item_type: 0,
+  //   item_id: 'sm9',
+  //   description: ''
+  // });
+  //
+  // await n.mylist.deleteVideo({
+  //   group_id      : 59065359,
+  //   'id_list[0][]': 9 // 動画IDではなくitem_id
+  // });
 
   t.pass();
 });
