@@ -21,9 +21,10 @@ test('test flow', async (t) => {
   // const id = list.mylistgroup.find((item) => item.name === '新しいマイリスト(1)').id;
   // const items = (await n.mylist.get(id)).mylistitem;
   // const res = await n.video.getFLV(items[0].item_data.video_id);
-
+  //
   // const videoData = await n.video.getVideoData(items[0].item_data.video_id);
-
+  //
+  // console.log(videoData)
   // const search = await n.video.search({
   //   q       : '初音ミク',
   //   targets : 'title',
