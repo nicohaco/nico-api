@@ -56,5 +56,7 @@ test('test flow', async (t) => {
   //   'id_list[0][]': 9 // 動画IDではなくitem_id
   // });
 
+  const a = await n.video.getRanking('VOCALOID');
+
   t.pass();
 });
