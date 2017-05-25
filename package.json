@@ -2,7 +2,7 @@
   "name": "nico-api",
   "main": "lib/index.js",
   "author": "(http://about-hiroppy.com) abouthiroppy <git@about-hiroppy.com>",
-  "version": "0.6.3",
+  "version": "0.7.0",
   "license": "MIT",
   "description": "",
   "keywords": [],
