@@ -23,8 +23,8 @@ test('test flow', async (t) => {
   // const res = await n.video.getFLV(items[0].item_data.video_id);
   //
   // const videoData = await n.video.getVideoData(items[0].item_data.video_id);
+  // const videoData = await n.video.getVideoData('sm9');
   //
-  // console.log(videoData)
   // const search = await n.video.search({
   //   q       : '初音ミク',
   //   targets : 'title',
@@ -56,7 +56,7 @@ test('test flow', async (t) => {
   //   'id_list[0][]': 9 // 動画IDではなくitem_id
   // });
 
-  const ranking = await n.video.getRanking('VOCALOID');
+  // const ranking = await n.video.getRanking('VOCALOID');
 
   t.pass();
 });
