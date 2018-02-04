@@ -7,17 +7,22 @@ import N from '../lib';
 
 dotenv.config();
 
-test('test flow', async (t) => {
-  const n = new N({
+let n;
+
+test.before(async (t) => {
+  n = new N({
     mail    : process.env.MAIL,
     password: process.env.PASSWORD
   });
 
   await n.login();
+});
 
-  // const list = await n.mylist.getAll();
-  //
-  // // 新しいマイリスト(1)を取得
+test('test flow', async (t) => {
+  const list = await n.mylist.getAll();
+
+  console.log(list)
+  // 新しいマイリスト(1)を取得
   // const id = list.mylistgroup.find((item) => item.name === '新しいマイリスト(1)').id;
   // const items = (await n.mylist.get(id)).mylistitem;
   // const res = await n.video.getFLV(items[0].item_data.video_id);
@@ -35,7 +40,7 @@ test('test flow', async (t) => {
   // });
   //
   // const userInfo = await n.user.getInfo();
-
+  //
   // const newMylistId = await n.mylist.create({
   //   name: '私の',
   //   description: '',
@@ -43,7 +48,7 @@ test('test flow', async (t) => {
   //   default_sort: 0,
   //   icon_id: 0
   // });
-
+  //
   // await n.mylist.addVideo({
   //   group_id: 59065359,
   //   item_type: 0,
@@ -55,7 +60,7 @@ test('test flow', async (t) => {
   //   group_id      : 59065359,
   //   'id_list[0][]': 9 // 動画IDではなくitem_id
   // });
-
+  //
   // const ranking = await n.video.getRanking('VOCALOID');
 
   t.pass();
