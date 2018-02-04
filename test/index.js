@@ -18,50 +18,20 @@ test.before(async (t) => {
   await n.login();
 });
 
-test('test flow', async (t) => {
+test('should return mylistgroup', async (t) => {
   const list = await n.mylist.getAll();
 
-  console.log(list)
-  // 新しいマイリスト(1)を取得
-  // const id = list.mylistgroup.find((item) => item.name === '新しいマイリスト(1)').id;
-  // const items = (await n.mylist.get(id)).mylistitem;
-  // const res = await n.video.getFLV(items[0].item_data.video_id);
-  //
-  // const videoData = await n.video.getVideoData(items[0].item_data.video_id);
-  // const videoData = await n.video.getVideoData('sm9');
-  //
-  // const search = await n.video.search({
-  //   q       : '初音ミク',
-  //   targets : 'title',
-  //   _sort   : '-viewCounter',
-  //   _context: 'nicoapi',
-  //   _limit  : 100,
-  //   fields  : 'contentId,title,description,tags,categoryTags,viewCounter,mylistCounter,commentCounter,startTime,thumbnailUrl'
-  // });
-  //
-  // const userInfo = await n.user.getInfo();
-  //
-  // const newMylistId = await n.mylist.create({
-  //   name: '私の',
-  //   description: '',
-  //   public: 0,
-  //   default_sort: 0,
-  //   icon_id: 0
-  // });
-  //
-  // await n.mylist.addVideo({
-  //   group_id: 59065359,
-  //   item_type: 0,
-  //   item_id: 'sm9',
-  //   description: ''
-  // });
-  //
-  // await n.mylist.deleteVideo({
-  //   group_id      : 59065359,
-  //   'id_list[0][]': 9 // 動画IDではなくitem_id
-  // });
-  //
-  // const ranking = await n.video.getRanking('VOCALOID');
+  t.snapshot(list);
+});
 
-  t.pass();
+test('should return mylist', async (t) => {
+  const list = await n.mylist.get(60973231);
+
+  t.snapshot(list);
+});
+
+test('should return token', async (t) => {
+  const token = await n.mylist.getToken();
+
+  t.truthy(!(token === 'NOAUTH'));
 });
